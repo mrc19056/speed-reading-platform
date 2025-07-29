@@ -1,0 +1,22 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://yourdomain.com/sitemap.xml
+
+# Disallow sensitive areas
+Disallow: /admin
+Disallow: /api/
+Disallow: /logs/
+Disallow: /config/
+Disallow: /uploads/private/
+Disallow: /tmp/
+Disallow: /backup*/
+
+# SEO optimized paths
+Allow: /public/
+Allow: /static/
+Allow: /assets/
+
+# Crawl delay (optional)
+Crawl-delay: 1
