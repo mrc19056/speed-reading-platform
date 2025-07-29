@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="description" content="Hızlı okuma becerilerinizi geliştirin. Etkileşimli alıştırmalar ve kişiselleştirilmiş antrenmanlarla okuma hızınızı artırın." />
+    <meta name="keywords" content="hızlı okuma, speed reading, okuma teknikleri, eğitim, öğrenme" />
+    <meta name="author" content="Speed Reading Platform" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://yourdomain.com/" />
+    <meta property="og:title" content="Speed Reading Platform - Hızlı Okuma Eğitimi" />
+    <meta property="og:description" content="Hızlı okuma becerilerinizi geliştirin. Etkileşimli alıştırmalar ve kişiselleştirilmiş antrenmanlarla okuma hızınızı artırın." />
+    <meta property="og:image" content="https://yourdomain.com/og-image.jpg" />
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://yourdomain.com/" />
+    <meta property="twitter:title" content="Speed Reading Platform - Hızlı Okuma Eğitimi" />
+    <meta property="twitter:description" content="Hızlı okuma becerilerinizi geliştirin. Etkileşimli alıştırmalar ve kişiselleştirilmiş antrenmanlarla okuma hızınızı artırın." />
+    <meta property="twitter:image" content="https://yourdomain.com/og-image.jpg" />
+    
+    <!-- Security Headers -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://api.yourdomain.com;">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    
+    <!-- PWA -->
+    <link rel="apple-touch-icon" href="/logo192.png" />
+    <link rel="manifest" href="/manifest.json" />
+    
+    <!-- Preconnect to external domains -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <title>Speed Reading Platform - Hızlı Okuma Eğitimi</title>
+    
+    <!-- Loading styles -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+            background-color: #f8fafc;
+            color: #1e293b;
+        }
+        
+        .loading-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        
+        .loading-spinner {
+            width: 50px;
+            height: 50px;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top: 3px solid white;
+            animation: spin 1s ease-in-out infinite;
+            margin-bottom: 20px;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .loading-text {
+            font-size: 18px;
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+        
+        .loading-subtitle {
+            font-size: 14px;
+            opacity: 0.8;
+        }
+        
+        #root {
+            min-height: 100vh;
+        }
+    </style>
+</head>
+<body>
+    <noscript>
+        <div style="text-align: center; padding: 50px; font-family: Arial, sans-serif;">
+            <h1>JavaScript Gereklidir</h1>
+            <p>Bu uygulamayı kullanmak için lütfen JavaScript'i etkinleştirin.</p>
+        </div>
+    </noscript>
+    
+    <div id="root">
+        <div class="loading-container">
+            <div class="loading-spinner"></div>
+            <div class="loading-text">Speed Reading Platform</div>
+            <div class="loading-subtitle">Yükleniyor...</div>
+        </div>
+    </div>
+    
+    <!-- Error handling -->
+    <script>
+        window.addEventListener('error', function(e) {
+            console.error('Application error:', e.error);
+            if (document.getElementById('root').innerHTML.includes('loading-container')) {
+                document.getElementById('root').innerHTML = `
+                    <div style="text-align: center; padding: 50px; font-family: Arial, sans-serif;">
+                        <h1>Uygulama Hatası</h1>
+                        <p>Uygulama yüklenirken bir hata oluştu. Lütfen sayfayı yenileyin.</p>
+                        <button onclick="window.location.reload()" style="margin-top: 20px; padding: 10px 20px; background: #667eea; color: white; border: none; border-radius: 5px; cursor: pointer;">Sayfayı Yenile</button>
+                    </div>
+                `;
+            }
+        });
+        
+        // Remove loading screen when React app loads
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                const loadingContainer = document.querySelector('.loading-container');
+                if (loadingContainer && loadingContainer.parentNode) {
+                    loadingContainer.style.opacity = '0';
+                    loadingContainer.style.transition = 'opacity 0.5s ease-out';
+                    setTimeout(() => {
+                        if (loadingContainer.parentNode) {
+                            loadingContainer.remove();
+                        }
+                    }, 500);
+                }
+            }, 1000);
+        });
+    </script>
+</body>
+</html>
